@@ -57,5 +57,5 @@ FROM '/path/orders.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"');
 
 COPY order_products(order_id, product_id, quantity)
-FROM '/path/customers.csv'
+FROM '/path/order_products.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ';', QUOTE '"');
