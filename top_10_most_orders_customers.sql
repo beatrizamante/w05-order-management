@@ -1,5 +1,5 @@
 SELECT 
-    first_name || ' ' last_name AS customer_name,
+    id, first_name || ' ' || last_name AS customer_name,
     COUNT(orders.id) AS order_amount
 FROM 
     customers
