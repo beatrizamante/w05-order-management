@@ -1,7 +1,7 @@
 SELECT 
     orders.id,
     orders.ordered_at,
-    customers.first_name || " " || customers.last_name as customer_name
+    customers.first_name || ' ' || customers.last_name as customer_name
 FROM 
     orders
 JOIN 
