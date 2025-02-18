@@ -1,5 +1,5 @@
 SELECT 
-    first_name || ' ' last_name AS customer_name
+    first_name || ' ' || last_name AS customer_name
 FROM
     customers
 LEFT JOIN 
