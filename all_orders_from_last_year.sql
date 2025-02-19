@@ -7,5 +7,5 @@ FROM
 JOIN 
     customers ON customers.id = orders.customer_id
 WHERE  
-    orders.ordered_at BETWEEN DATE_TRUNC('year', CURRENT_DATE) - INTERVAL '1 year'
-    AND DATE_TRUNC('year', CURRENT_DATE) - INTERVAL '1 day';
+    orders.ordered_at BETWEEN make_date(EXTRACT(YEAR FROM CURRENT_DATE)::int - 1, 1, 1)
+    AND make_date(EXTRACT(YEAR FROM CURRENT_DATE)::int - 1, 12, 31);
