@@ -11,7 +11,7 @@ CREATE TABLE customers (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     customer_id INT NOT NULL,
-    ordered_at TIMESTAMP NOT NULL,
+    ordered_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE products (
