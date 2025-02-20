@@ -8,6 +8,6 @@ BEGIN;
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        RAISE NOTICE 'Error at inserting new customer.';
+        RAISE NOTICE 'Error at inserting new product.';
 
 END;
