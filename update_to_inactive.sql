@@ -1,8 +1,9 @@
 UPDATE customers
 SET active = FALSE
 WHERE active = TRUE
-AND id NOT IN (
-    SELECT DISTINCT customer_id
+AND id IN (
+    SELECT customer_id
     FROM orders
-    WHERE ordered_at <= '2022-12-31'
+    GROUB BY customer_id
+    HAVING MAX(ordered_at) <= '2022-12-31'
 );
