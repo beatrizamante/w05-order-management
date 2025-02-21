@@ -14,15 +14,6 @@ SELECT id AS old_product_id, keep_product_id
 FROM duplicated_products 
 WHERE id != keep_product_id;
 
-CREATE TEMP TABLE temp_updated_orders AS
-SELECT 
-    op.order_id,
-    COALESCE(m.keep_product_id, op.product_id) AS product_id, 
-    SUM(op.quantity) AS total_quantity 
-FROM order_products op
-LEFT JOIN temp_product_mapping m ON op.product_id = m.old_product_id
-GROUP BY op.order_id, COALESCE(m.keep_product_id, op.product_id);
-
 WITH deleted AS (
     DELETE FROM order_products
     WHERE product_id IN (SELECT old_product_id FROM temp_product_mapping)
