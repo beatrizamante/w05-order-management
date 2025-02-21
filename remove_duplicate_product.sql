@@ -23,9 +23,6 @@ FROM order_products op
 LEFT JOIN temp_product_mapping m ON op.product_id = m.old_product_id
 GROUP BY op.order_id, COALESCE(m.keep_product_id, op.product_id);
 
-DELETE FROM order_products 
-WHERE product_id IN (SELECT old_product_id FROM temp_product_mapping);
-
 WITH deleted AS (
     DELETE FROM order_products
     WHERE product_id IN (SELECT old_product_id FROM temp_product_mapping)
